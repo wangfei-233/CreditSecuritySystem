@@ -1,5 +1,6 @@
 package com.yinuo.web.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.yinuo.common.annotation.Log;
 import com.yinuo.common.controller.BaseController;
 import com.yinuo.common.domain.QueryRequest;
+import com.yinuo.system.domain.Dict;
+import com.yinuo.system.service.DictService;
 import com.yinuo.web.domain.Info;
 import com.yinuo.web.service.InfoService;
 
@@ -26,10 +29,18 @@ public class InfoController extends BaseController {
     @Autowired
     private InfoService InfoService;
     
+    @Autowired
+    private DictService dictService;
+    
     @RequestMapping("info")
     @RequiresPermissions("info:list")
-    public String index(Model model) {
+    public String index(Model model,QueryRequest request) {
     	log.info("{}","info");
+    	Dict dict = new Dict();
+    	dict.setFieldName("info_type");
+    	dict.setTableName("t_info");
+    	List<Dict> dicts = dictService.findAllDicts(dict, request);
+    	model.addAttribute("types", dicts);
         return "web/info/info";
     }
     

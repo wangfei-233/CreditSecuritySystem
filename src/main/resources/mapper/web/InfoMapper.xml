@@ -12,10 +12,14 @@
   
   <select id="findInfoWithNameAndInfoType" resultType="info" parameterType="info">
   		select t.info_id infoId,t.name name,t.content content,t.info_type infoType,
-  		t.crate_time crateTime,'11' infoTypeName from t_info t 
+  		t.crate_time crateTime,d.valuee infoTypeName from t_info t 
+  		left join t_dict d on (d.table_name = 't_info' and d.keyy = t.info_type)
   		where 1=1
   		<if test="name != null and name != ''">
-        	AND t.name = #{name}
+        	AND t.name like concat(concat('%',#{name}),'%')
+	    </if>
+	    <if test="infoType != null and infoType != ''">
+        	AND t.info_type = #{infoType}
 	    </if>
   		order by t.info_id
   </select>

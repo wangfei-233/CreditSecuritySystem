@@ -1,0 +1,65 @@
+<div class="modal fade" id="info-add" data-keyboard="false" data-backdrop="static" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title pull-left" id="info-add-modal-title">新增信息</h3>
+            </div>
+            <div class="modal-body">
+                <form id="user-add-form">
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 标题：
+					            </span>
+                                <div class="form-group">
+                                    <input type="text" name="name" class="form-control">
+                                    <input type="text" hidden name="infoId" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 类型：
+					             </span>
+                               <!--  <div class="form-group">
+                                    <select name="typesSelect"></select>
+                                    <input name="infoType" hidden/>
+                                </div> -->
+                                <div class="form-group">
+                                    <select class="form-control" name="infoType">
+                                           <option value="" selected>所有</option>
+                                           <option th:each="t:${types}" th:value="${t.keyy}" th:text="${t.valuee}"></option>
+                                           <!-- <option value="1">1</option>
+                                           <option value="2">2</option> -->
+                                       </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+					               	 内容：
+					             </span>
+                                <div class="form-group">
+                                    <script id="editor" name="content" type="text/plain" style="width:100;height:300px;"></script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-save" id="info-add-button" name="save">保存</button>
+                <button type="button" class="btn btn-secondary btn-close">关闭</button>
+                <button class="btn-hide"></button>
+            </div>
+        </div>
+    </div>
+</div>
+<script data-th-src="@{js/app/web/info/infoAdd.js}"></script>
