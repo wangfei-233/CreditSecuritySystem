@@ -1,5 +1,6 @@
 package com.yinuo.web.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -14,6 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.yinuo.common.annotation.Log;
 import com.yinuo.common.controller.BaseController;
 import com.yinuo.common.domain.QueryRequest;
+import com.yinuo.common.domain.ResponseBo;
+import com.yinuo.system.domain.Dict;
+import com.yinuo.system.service.DictService;
 import com.yinuo.web.domain.Info;
 import com.yinuo.web.service.InfoService;
 
@@ -26,10 +30,18 @@ public class InfoController extends BaseController {
     @Autowired
     private InfoService InfoService;
     
+    @Autowired
+    private DictService dictService;
+    
     @RequestMapping("info")
     @RequiresPermissions("info:list")
-    public String index(Model model) {
+    public String index(Model model,QueryRequest request) {
     	log.info("{}","info");
+    	Dict dict = new Dict();
+    	dict.setFieldName("info_type");
+    	dict.setTableName("t_info");
+    	List<Dict> dicts = dictService.findAllDicts(dict, request);
+    	model.addAttribute("types", dicts);
         return "web/info/info";
     }
     
@@ -42,23 +54,19 @@ public class InfoController extends BaseController {
     }
 
 
-//    @Log("新增用户")
-//    @RequiresPermissions("user:add")
-//    @RequestMapping("user/add")
-//    @ResponseBody
-//    public ResponseBo addUser(User user, Long[] roles) {
-//        try {
-//            if (ON.equalsIgnoreCase(user.getStatus()))
-//                user.setStatus(User.STATUS_VALID);
-//            else
-//                user.setStatus(User.STATUS_LOCK);
-//            this.userService.addUser(user, roles);
-//            return ResponseBo.ok("新增用户成功！");
-//        } catch (Exception e) {
-//            log.error("新增用户失败", e);
-//            return ResponseBo.error("新增用户失败，请联系网站管理员！");
-//        }
-//    }
+    @Log("新增用户")
+    @RequiresPermissions("info:add")
+    @RequestMapping("info/add")
+    @ResponseBody
+    public ResponseBo addUser(Info info) {
+        try {
+        	System.out.println(info);
+            return ResponseBo.ok("新增用户成功！");
+        } catch (Exception e) {
+            log.error("新增用户失败", e);
+            return ResponseBo.error("新增用户失败，请联系网站管理员！");
+        }
+    }
 
 //    @Log("修改用户")
 //    @RequiresPermissions("user:update")
