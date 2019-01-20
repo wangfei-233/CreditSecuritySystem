@@ -4712,7 +4712,7 @@ button.close {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1050;
+  z-index: 950;
   display: none;
   overflow: hidden;
   outline: 0;
@@ -4754,7 +4754,7 @@ button.close {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1040;
+  z-index: 940;
   background-color: #000000;
 }
 .modal-backdrop.fade {
@@ -4826,7 +4826,7 @@ button.close {
 }
 .tooltip {
   position: absolute;
-  z-index: 1070;
+  z-index: 970;
   display: block;
   font-family: "Roboto", sans-serif;
   font-style: normal;
@@ -4918,7 +4918,7 @@ button.close {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1060;
+  z-index: 960;
   display: block;
   max-width: 276px;
   padding: 15px 10px;
@@ -6250,7 +6250,7 @@ a.bg-inverse:focus, a.bg-inverse:hover {
   top: 0;
   right: 0;
   left: 0;
-  z-index: 1030;
+  z-index: 930;
 }
 
 .fixed-bottom {
@@ -6258,13 +6258,13 @@ a.bg-inverse:focus, a.bg-inverse:hover {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1030;
+  z-index: 930;
 }
 
 .sticky-top {
   position: sticky;
   top: 0;
-  z-index: 1030;
+  z-index: 930;
 }
 
 .sr-only {

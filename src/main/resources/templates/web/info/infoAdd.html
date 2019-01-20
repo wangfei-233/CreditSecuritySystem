@@ -5,7 +5,7 @@
                 <h3 class="modal-title pull-left" id="info-add-modal-title">新增信息</h3>
             </div>
             <div class="modal-body">
-                <form id="user-add-form">
+                <form id="info-add-form">
                     <div class="row">
                         <div class="col-sm-11">
                             <div class="input-group">
@@ -31,10 +31,7 @@
                                 </div> -->
                                 <div class="form-group">
                                     <select class="form-control" name="infoType">
-                                           <option value="" selected>所有</option>
                                            <option th:each="t:${types}" th:value="${t.keyy}" th:text="${t.valuee}"></option>
-                                           <!-- <option value="1">1</option>
-                                           <option value="2">2</option> -->
                                        </select>
                                 </div>
                             </div>

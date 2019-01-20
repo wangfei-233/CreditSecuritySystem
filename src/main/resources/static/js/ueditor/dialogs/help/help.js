@@ -26,9 +26,11 @@ function clickHandler( tabHeads,tabBodys,obj ) {
             this.style.zoom = 1;
         };
         if ( id != tabSrc ) {
-            body.style.zIndex = 1;
+//            body.style.zIndex = 1;
+            body.style.zIndex = 1055;
         } else {
-            body.style.zIndex = 200;
+            body.style.zIndex = 1055;
+//            body.style.zIndex = 200;
         }
     }
 

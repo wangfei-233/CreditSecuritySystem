@@ -1,9 +1,12 @@
+var validator;
 var $infoAddForm = $("#info-add-form");
 var ue = UE.getEditor('editor');
 
 $(function () {
     $("#info-add .btn-save").click(function () {
         var name = $(this).attr("name");
+        alert(name);
+        var validator = $infoAddForm.validate();
         var flag = validator.form();
         if (flag) {
             if (name === "save") {

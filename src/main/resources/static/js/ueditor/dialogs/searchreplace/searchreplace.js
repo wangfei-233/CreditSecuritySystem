@@ -28,9 +28,11 @@ function clickHandler( tabHeads,tabBodys,obj ) {
         var body = tabBodys[j],
             id = body.getAttribute( "id" );
         if ( id != tabSrc ) {
-            body.style.zIndex = 1;
+//            body.style.zIndex = 1;
+            body.style.zIndex = 1055;
         } else {
-            body.style.zIndex = 200;
+//            body.style.zIndex = 200;
+            body.style.zIndex = 1055;
         }
     }
 

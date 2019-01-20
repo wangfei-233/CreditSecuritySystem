@@ -265,7 +265,8 @@ var scrawl = function (options) {
                         if (scaleCon.style.visibility == "visible") {
                             scaleCon.style.visibility = "hidden";
                             picBoard.style.position = "";
-                            picBoard.style.zIndex = "";
+                            picBoard.style.zIndex = "1055";
+//                            picBoard.style.zIndex = "";
                         } else {
                             scaleCon.style.visibility = "visible";
                             picBoard.style.cssText += "position:relative;z-index:999";
